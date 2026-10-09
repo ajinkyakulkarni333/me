@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajinkya Kulkarni, Full Stack Developer</title>
+<meta name="description" content="Ajinkya Kulkarni, full stack developer in Pune, India. A scroll through the career so far.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ajinkya Kulkarni, Full Stack Developer">
+<meta property="og:description" content="A scroll through the career so far: Java, Spring Boot, Angular and React, from MIT Pune to Broadcom.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0f1220">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style>
+:root{
+  --c0:#0f1220;--ink:#eef2fb;--soft:#cfd8ea;--acc:#6ee7c8;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background-color:var(--c0);
+  background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.6px);background-size:30px 30px;
+  color:var(--ink);font-family:var(--body);font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.6}
+
+#stage{position:fixed;inset:0;pointer-events:none;z-index:0}
+#svg{position:absolute;inset:0;width:100%;height:100%}
+#trail{fill:none;stroke:var(--acc);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
+#drop{position:absolute;left:0;top:0;will-change:transform}
+#drop i{display:block;width:16px;height:16px;border-radius:50%;background:var(--acc);
+  box-shadow:0 0 0 6px rgba(110,231,200,.18),0 0 30px 8px rgba(110,231,200,.4)}
+
+#meter{position:fixed;left:0;bottom:0;z-index:2;padding:1rem 1.25rem calc(1rem + env(safe-area-inset-bottom,0px));pointer-events:none}
+#meter b{display:block;font:700 2rem/1 var(--display);color:var(--acc);font-variant-numeric:tabular-nums}
+#meter span{display:block;margin-top:.4rem;font:500 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--soft)}
+#meter span::after{content:"_";margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){#meter span::after{animation:none}}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.28;will-change:transform}
+#b1{width:40vw;height:40vw;right:-10vw;top:8vh;background:#6ee7c8}
+#b2{width:36vw;height:36vw;left:-12vw;bottom:0;background:#8b5cf6}
+#spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,40%),rgba(110,231,200,.10),transparent 70%)}
+
+main{position:relative;z-index:1}
+.ch{min-height:130vh;display:flex;align-items:center;padding:0 6vw}
+.ch:nth-of-type(even){justify-content:flex-end}
+.hero{min-height:110vh}
+.last{min-height:130vh}
+.txt{position:relative;z-index:1;width:min(34vw,30rem)}
+.ch:not(.hero) .txt{padding:1.6rem 1.8rem;background:rgba(12,15,30,.4);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:22px}
+.ch{overflow:hidden}
+.ch::before{content:attr(data-y);position:absolute;top:50%;right:2vw;transform:translateY(-50%);font:800 16vw/1 var(--display);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.13);pointer-events:none}
+.ch:nth-of-type(even)::before{right:auto;left:2vw}
+.hero::before{content:none}
+.skip{position:absolute;left:-999px;top:0;z-index:5;background:var(--acc);color:#0f1220;padding:.5rem 1rem;font:600 1rem var(--display);border-radius:0 0 10px 0;text-decoration:none}
+.skip:focus{left:0}
+#stars{position:absolute;inset:0;width:100%;height:100%}
+#dots{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;padding:0 calc(.5rem + env(safe-area-inset-right,0px)) 0 .5rem}
+#dots button{width:24px;height:24px;display:grid;place-items:center;background:none;border:0;padding:0;cursor:pointer}
+#dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(238,242,251,.4);transition:transform .25s,background .25s}
+#dots button.on::before{background:var(--acc);transform:scale(1.6)}
+#dots button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:50%}
+h1,h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em;line-height:1.02;margin:0 0 1.2rem}
+h1{font-size:clamp(3rem,8vw,7rem);background:linear-gradient(100deg,#fff 10%,var(--acc) 55%,#a78bfa 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(2rem,3.6vw,3.4rem)}
+p{margin:0 0 1.4rem;color:var(--soft);max-width:36ch}
+p.eye{margin:0 0 .7rem;color:var(--acc);font:600 1rem var(--display);letter-spacing:.04em}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0 0 1.5rem;padding:0}
+.tags li{font:600 .85rem var(--display);border:1px solid rgba(238,242,251,.35);border-radius:999px;padding:.2rem .75rem}
+.links{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{font:600 1rem var(--display);color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);border-radius:999px;padding:.6rem 1.3rem}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#0f1220}
+.btn:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+
+@media (max-width:719px){
+  .ch{padding:0 5vw 0 17vw}
+  .ch:nth-of-type(even){justify-content:flex-start}
+  .txt{width:auto}
+  .ch::before,.ch:nth-of-type(even)::before{left:auto;right:-3vw;font-size:30vw}
+  .blob,#dots{display:none}
+  .ch:not(.hero) .txt{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(12,15,30,.72)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#story">Skip to content</a>
+<div id="spot" aria-hidden="true"></div>
+<div id="stage" aria-hidden="true">
+  <canvas id="stars"></canvas><div class="blob" id="b1"></div><div class="blob" id="b2"></div>
+  <svg id="svg"><path id="trail"/></svg>
+  <div id="drop"><i></i></div>
+</div>
+<div id="meter" aria-hidden="true"><b id="alt">2014</b><span id="branch">HEAD -> start</span></div>
+<nav id="dots" aria-label="Chapters"></nav>
+
+<main id="story">
+  <section class="ch hero">
+    <div class="txt">
+      <p class="eye">Full stack developer, Pune, India</p>
+      <h1>Ajinkya Kulkarni</h1>
+      <p>I build applications from database to interface: Java and Spring on the back, Angular and React up front. Scroll for the story so far.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-y="2014">
+    <div class="txt">
+      <p class="eye">2014 to 2018</p>
+      <h2>Computer Engineering, MIT Pune.</h2>
+      <p>A B.E. at Maharashtra Institute of Technology gave me the foundation under everything since: algorithms, data structures, database design and networks.</p>
+      <ul class="tags"><li>DBMS</li><li>Algorithms</li><li>OOP</li><li>Computer networks</li></ul>
+    </div>
+  </section>
+
+  <section class="ch" data-y="2018">
+    <div class="txt">
+      <p class="eye">Aug 2018 to Sep 2021</p>
+      <h2>Amdocs: telecom, full stack.</h2>
+      <p>My first job, building software for global carriers. Spring Boot, Hibernate, JPA and REST APIs on the back, Angular on the front, across large enterprise codebases.</p>
+      <ul class="tags"><li>Spring Boot</li><li>Hibernate</li><li>Angular</li><li>MongoDB</li><li>Oracle</li></ul>
+    </div>
+  </section>
+
+  <section class="ch" data-y="2021">
+    <div class="txt">
+      <p class="eye">Sep 2021 to Jun 2022</p>
+      <h2>Morgan Stanley: correctness is the job.</h2>
+      <p>Critical financial systems at a global investment bank. Backend services built for high availability, where correctness and performance are non-negotiable.</p>
+      <ul class="tags"><li>Java</li><li>Spring</li><li>SQL</li><li>Angular</li></ul>
+    </div>
+  </section>
+
+  <section class="ch" data-y="2022">
+    <div class="txt">
+      <p class="eye">Jun 2022 to Dec 2024</p>
+      <h2>VMware Carbon Black Cloud.</h2>
+      <p>Backend services for an endpoint security and threat detection platform, handling high-volume security telemetry.</p>
+      <ul class="tags"><li>Java</li><li>Spring Boot</li><li>Cloud</li><li>REST APIs</li></ul>
+    </div>
+  </section>
+
+  <section class="ch" data-y="2024">
+    <div class="txt">
+      <p class="eye">Dec 2024 to now</p>
+      <h2>Broadcom, security division.</h2>
+      <p>After Broadcom's acquisition of VMware, I moved into its security division, building and maintaining high-performance backend services for the security platform.</p>
+      <ul class="tags"><li>Java</li><li>Spring Boot</li><li>Microservices</li><li>REST APIs</li></ul>
+    </div>
+  </section>
+
+  <section class="ch last" data-y="now">
+    <div class="txt">
+      <p class="eye">Let's talk</p>
+      <h2>Open to opportunities.</h2>
+      <p>Building something new or scaling a product? My inbox is open. Off the clock I'm on a football pitch, borrowing a little tiki-taka for my code.</p>
+      <ul class="tags"><li>Java</li><li>Spring Boot</li><li>Hibernate</li><li>Angular</li><li>React</li><li>TypeScript</li><li>SQL</li><li>MongoDB</li><li>PostgreSQL</li><li>Python</li></ul>
+      <div class="links">
+        <a class="btn" href="mailto:ajinkyakulkarni333@gmail.com">Email</a>
+        <a class="btn" href="https://github.com/ajinkyakulkarni333" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/ajinkyakulkarni333" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var drop = document.getElementById('drop'), trail = document.getElementById('trail'),
+      svg = document.getElementById('svg'), altEl = document.getElementById('alt'),
+      branchEl = document.getElementById('branch'), b1 = document.getElementById('b1'), b2 = document.getElementById('b2'),
+      dotsEl = document.getElementById('dots'), cv = document.getElementById('stars'), cx = cv.getContext('2d'), P = [];
+  var TAU = Math.PI * 2, N = 160, W, H, pts = [], xs = [], tgt = 0, cur = 0;
+  // year shown at the middle of each chapter: start, MIT, Amdocs, Morgan Stanley, VMware, Broadcom, now
+  var ys = [2014, 2016, 2019, 2021.8, 2023.2, 2025, 2026];
+  var names = ['start', 'mit-pune', 'amdocs', 'morgan-stanley', 'carbon-black', 'broadcom', 'contact'];
+
+  function seed(){
+    cv.width = W; cv.height = H; P = [];
+    for (var i = 0, n = W < 720 ? 28 : 64; i < n; i++) P.push({ x: Math.random() * W, y: Math.random() * H, z: 0.3 + Math.random() * 0.7, a: Math.random() * TAU });
+  }
+  // A drifting constellation that parallaxes with scroll
+  function stars(t){
+    cx.clearRect(0, 0, W, H);
+    var q = P.map(function(p){
+      if (!reduce) p.a += 0.002;
+      return { x: p.x + Math.cos(p.a) * 12 * p.z, y: (((p.y - t * H * 1.2 * p.z) % H) + H) % H + Math.sin(p.a) * 12 * p.z, z: p.z };
+    });
+    for (var i = 0; i < q.length; i++){
+      cx.fillStyle = 'rgba(238,242,251,' + (0.5 * q[i].z) + ')';
+      cx.beginPath(); cx.arc(q[i].x, q[i].y, 1.3 * q[i].z, 0, TAU); cx.fill();
+      for (var j = i + 1; j < q.length; j++){
+        var dx = q[i].x - q[j].x, dy = q[i].y - q[j].y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 110){
+          cx.strokeStyle = 'rgba(110,231,200,' + (0.2 * (1 - d / 110)) + ')';
+          cx.beginPath(); cx.moveTo(q[i].x, q[i].y); cx.lineTo(q[j].x, q[j].y); cx.stroke();
+        }
+      }
+    }
+  }
+
+  var hex = function(h){ return [1,3,5].map(function(i){ return parseInt(h.slice(i,i+2),16); }); };
+  var stops = ['#0f1220','#1d2a5e','#15506a','#1e3a46','#2a1630'].map(hex);
+  function bg(t){
+    var f = t * (stops.length - 1), i = Math.min(Math.floor(f), stops.length - 2), u = f - i;
+    return 'rgb(' + stops[i].map(function(c,k){ return Math.round(c + (stops[i+1][k] - c) * u); }).join(',') + ')';
+  }
+
+  function pos(t){
+    var narrow = W < 720, mid = narrow ? 0.09 : 0.5, amp = narrow ? 0.025 : 0.07;
+    return { x: W * (mid + amp * Math.sin(t * TAU * 3)), y: H * (0.08 + 0.84 * t) };
+  }
+
+  function layout(){
+    W = innerWidth; H = innerHeight;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    seed();
+    pts = [];
+    for (var i = 0; i <= N; i++){ var p = pos(i / N); pts.push(p.x.toFixed(1) + ' ' + p.y.toFixed(1)); }
+    var max = document.documentElement.scrollHeight - H, secs = document.querySelectorAll('.ch');
+    xs = [];
+    secs.forEach(function(c, i){
+      var r = c.getBoundingClientRect(), x = (scrollY + r.top + r.height / 2 - H / 2) / max;
+      xs.push(i === 0 ? 0 : i === secs.length - 1 ? 1 : Math.min(Math.max(x, 0), 1));
+    });
+  }
+
+  function year(t){
+    for (var i = 0; i < xs.length - 1; i++){
+      if (t <= xs[i + 1]){
+        var u = xs[i + 1] > xs[i] ? (t - xs[i]) / (xs[i + 1] - xs[i]) : 0;
+        return ys[i] + (ys[i + 1] - ys[i]) * u;
+      }
+    }
+    return ys[ys.length - 1];
+  }
+
+  function progress(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    return max > 0 ? Math.min(Math.max(scrollY / max, 0), 1) : 0;
+  }
+
+  function render(t, v){
+    var p = pos(t),
+        stretch = 1 + Math.min(Math.abs(v) * 12, 0.25),
+        end = Math.min(Math.max((t - 0.94) / 0.06, 0), 1),
+        s = 1 - 0.4 * end;
+    drop.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px) translate(-50%,-50%) scale(' +
+      (s / Math.sqrt(stretch)) + ',' + (s * stretch) + ')';
+    drop.style.opacity = 1 - end;
+    var n = Math.floor(t * N);
+    trail.setAttribute('d', 'M' + pts.slice(0, n + 1).join('L') + 'L' + p.x.toFixed(1) + ' ' + p.y.toFixed(1));
+    trail.style.opacity = 0.45 * (1 - end);
+    document.body.style.backgroundColor = bg(t);
+    altEl.textContent = Math.round(year(t));
+    var k = 0;
+    for (var j = 0; j < xs.length; j++){ if (Math.abs(t - xs[j]) < Math.abs(t - xs[k])) k = j; }
+    branchEl.textContent = 'HEAD -> ' + names[k];
+    for (var q = 0; q < dotsEl.children.length; q++) dotsEl.children[q].classList.toggle('on', q === k);
+    b1.style.transform = 'translate(' + (-t * 18) + 'vw,' + (t * 40) + 'vh)';
+    b2.style.transform = 'translate(' + (t * 30) + 'vw,' + (-t * 28) + 'vh)';
+    stars(t);
+  }
+
+  layout();
+  document.querySelectorAll('.ch').forEach(function(c, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.title = names[i]; b.setAttribute('aria-label', 'Go to ' + names[i]);
+    b.addEventListener('click', function(){
+      var max = document.documentElement.scrollHeight - innerHeight;
+      scrollTo({ top: Math.round(xs[i] * max), behavior: reduce ? 'auto' : 'smooth' });
+    });
+    dotsEl.appendChild(b);
+  });
+  tgt = cur = progress();
+  addEventListener('scroll', function(){ tgt = progress(); }, { passive: true });
+  addEventListener('resize', function(){ layout(); tgt = progress(); });
+  addEventListener('load', function(){ layout(); tgt = progress(); });
+
+  if (matchMedia('(pointer: fine)').matches){
+    addEventListener('pointermove', function(e){
+      document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+      document.documentElement.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.ticker.add(function(){
+    var prev = cur;
+    cur += (tgt - cur) * (reduce ? 1 : 0.1);
+    render(cur, cur - prev);
+  });
+
+  // Text comes into focus as its chapter reaches the middle of the screen, then recedes.
+  if (!reduce){
+    gsap.from('.hero .txt > *', { y: 30, opacity: 0, filter: 'blur(8px)', duration: 1, stagger: 0.12, ease: 'power3.out' });
+    document.querySelectorAll('.ch .txt').forEach(function(el){
+      var ch = el.parentElement;
+      if (!ch.classList.contains('hero')){
+        gsap.fromTo(el, { opacity: 0.1 }, { opacity: 1, ease: 'none',
+          scrollTrigger: { trigger: ch, start: 'top 75%', end: 'center 55%', scrub: true } });
+      }
+      if (!ch.classList.contains('last')){
+        gsap.to(el, { opacity: 0.1, ease: 'none', immediateRender: false,
+          scrollTrigger: { trigger: ch, start: 'center 40%', end: 'bottom 25%', scrub: true } });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
